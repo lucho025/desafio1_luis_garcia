@@ -1,0 +1,19 @@
+header {
+background-color:rgb(182, 49, 49);
+color: white;
+text-align:center;
+}
+
+header a {
+    text-decoration: none;
+    color: rgb(216, 212, 212);
+}
+
+ul {
+    list-style-type:none;
+}
+
+li {
+    display: inline;
+    margin:10px;
+}
