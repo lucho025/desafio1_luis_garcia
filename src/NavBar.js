@@ -1,8 +1,10 @@
 import React from "react"
+import CartWidget from './CartWidget'
 
-function App (){
+const NavBar = () => {
     return(
-        <header>
+        <>
+        <nav>
             <h1>Tienda de E-Commerce - Distrimundo</h1>
             <ul>
             <li><a href="#" target="_blank">Inicio</a></li>
@@ -11,8 +13,10 @@ function App (){
             <li><a href="#" target="_blank">Metodos de Envio</a></li>
             <li><a href="#" target="_blank">Contacto</a></li>
             </ul>
-        </header>
+        </nav>
+        <CartWidget/>
+        </>
     )
 }
 
-export default App 
+export default NavBar 
