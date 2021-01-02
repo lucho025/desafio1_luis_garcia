@@ -1,13 +1,21 @@
 
 import React from 'react'
-import NavBar from './components/NavBar.js'
+import Header from './Header'
+import Footer from './Footer'
+import ItemListContainer from './ItemListContainer'
+import ItemCount from './ItemCount'
+import CartWidget from './CartWidget'
 
 
 
 const App = () => {
     return (
         <>
-            <NavBar/>
+            <Header/>
+            <CartWidget/>
+            <ItemCount/>
+            <ItemListContainer greeting="Muchas gracias por visitar el sitio"/>
+            <Footer creador="Luis Garcia" fecha="2020"/>
             
         </>
     )
