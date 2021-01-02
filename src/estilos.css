@@ -22,3 +22,10 @@ p {
     color:darkblue;
     text-align:center;
 }
+
+#contador {
+    margin-left:auto;
+    margin-right:auto;
+    background-color:lavender;    
+    width: 300px;
+}
