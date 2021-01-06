@@ -21,7 +21,7 @@ const Contador = ({stock,initial}) => {
     }
 
     const onAdd = () => {
-        console.log("Articulo agregado")
+        console.log("Se van a solicitar "+contador+" unidades")
     }
 
 
