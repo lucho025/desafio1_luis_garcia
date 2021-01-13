@@ -67,7 +67,8 @@ const ItemListContainer = ({greeting}) => {
     return (
         <div>
             <ItemList items={items}/>
-            <ItemCount stock={5} initial={1}/>     
+            <ItemCount stock={5} initial={1}/>
+            <ItemDetailContainer/>     
             <p>{greeting}</p>
         </div>
     )

@@ -17,7 +17,7 @@ const ItemDetailContainer = () => {
                     warranty : "Garantía de fábrica: 180 días",
                     description: "Descripcion 4",
                     pictures : [
-                        "https://www.mayoristaentecnologia.com.ar/sistema/fotos/productos/00000048_foto_1609276223.jpg",
+                        "https://http2.mlstatic.com/D_Q_NP_2X_854840-MLA43409751175_092020-R.webp",
                         "https://www.mayoristaentecnologia.com.ar/sistema/fotos/productos/00000778_00001956_G_16092706305feb85661ca98.png",
                         "https://www.mayoristaentecnologia.com.ar/sistema/fotos/productos/00000048_foto_1609271108.jpg"
                     ]
