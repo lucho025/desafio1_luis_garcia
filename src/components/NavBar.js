@@ -1,21 +1,37 @@
-import React from "react"
+import React from 'react';
+import './Navbar.css';
+import { Link } from 'react-router-dom';
 
-const NavBar = () => {
-    return(
+const categories = [{
+    categoryId: "Negros",
+    name: "Negros"
+},
+{
+    categoryId: "Blancos",
+    name: "Blancos"
+},{
+    categoryId: "Grises",
+    name: "Grises"
+}]
+
+const Navbar = () => {
+    return (
         <>
-        <nav>
+            <nav>
             <h1>Tienda de E-Commerce - Distrimundo</h1>
             <ul>
-            <li><a href="#" target="_blank">Inicio</a></li>
-            <li><a href="#" target="_blank">Productos</a></li>
+            <li><Link to={''}>Inicio</Link></li>            
+                { categories.map( category => <li><Link to={`/category/${category.categoryId}`}>
+                    {category.name}
+                    </Link></li>)}
             <li><a href="#" target="_blank">Formas de Pago</a></li>
             <li><a href="#" target="_blank">Metodos de Envio</a></li>
-            <li><a href="#" target="_blank">Contacto</a></li>
+            <li><a href="#" target="_blank">Contacto</a></li>        
+                
             </ul>
-        </nav>
-      
-        </>
+            </nav>
+        </>   
     )
 }
 
-export default NavBar 
+export default Navbar

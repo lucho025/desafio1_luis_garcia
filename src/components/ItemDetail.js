@@ -1,5 +1,18 @@
-import React from 'react'
+import React from 'react';
+import './ItemDetail.css';
+import { makeStyles } from '@material-ui/core/styles';
+import Card from '@material-ui/core/Card';
+import CardActionArea from '@material-ui/core/CardActionArea';
+import CardContent from '@material-ui/core/CardContent';
+import CardMedia from '@material-ui/core/CardMedia';
+import Typography from '@material-ui/core/Typography';
 import ItemCount from './ItemCount';
+
+const useStyles = makeStyles({
+  root: {
+    maxWidth: 345,
+  },
+});
 
 function ItemDetail( { name, image, description, stock, initial, price }) {
     const classes = useStyles();
@@ -21,7 +34,7 @@ function ItemDetail( { name, image, description, stock, initial, price }) {
                     {name}
                   </Typography>
                   <Typography variant="body2" color="textSecondary" component="p">
-                    {description} su precio es de solo ${price}
+                    {description} llevalo al precio de ${price}
                   </Typography>
                 </CardContent>
               </CardActionArea>
@@ -33,5 +46,4 @@ function ItemDetail( { name, image, description, stock, initial, price }) {
     )
 }
 
-
-export default ItemDetail
+export default ItemDetail 

@@ -1,0 +1,15 @@
+.app {
+  background-color: #d0ced3;
+  color: #f0efeb;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#contador {
+  margin-left:auto;
+  margin-right:auto;
+  background-color:lavender;    
+  width: 300px;
+}
