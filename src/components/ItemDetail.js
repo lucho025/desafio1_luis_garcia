@@ -1,20 +1,37 @@
 import React from 'react'
+import ItemCount from './ItemCount';
 
-const ItemDetail = ({item}) => {
+function ItemDetail( { name, image, description, stock, initial, price }) {
+    const classes = useStyles();
+
 
     return (
-        <div>
-            <br></br>
-            <h3 align="center">{item.title} - ${item.price}</h3>
-            <p align="center"><img src={item.pictures[0]} alt="carousel"/></p>
-            <p>{item.description}</p>
-            <p>
-                <strong>GARANTIA :</strong><br/>
-                {item.warranty}
-            </p>
-            <br></br>
+        <div className="itemDetail">
+             <Card className={classes.root}>
+              <CardActionArea>
+                <CardMedia
+                  component="img"
+                  alt={name}
+                  height="300"
+                  image={image}
+                  title={name}
+                />
+                <CardContent>
+                  <Typography gutterBottom variant="h5" component="h2">
+                    {name}
+                  </Typography>
+                  <Typography variant="body2" color="textSecondary" component="p">
+                    {description} su precio es de solo ${price}
+                  </Typography>
+                </CardContent>
+              </CardActionArea>
+            </Card>
+          <div className="itemDetail__counter">
+            <ItemCount initial={initial} stock={stock} />
+          </div>
         </div>
     )
 }
+
 
 export default ItemDetail
