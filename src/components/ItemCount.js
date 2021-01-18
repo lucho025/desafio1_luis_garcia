@@ -1,41 +1,28 @@
 import React, { useState } from 'react'
+import { Button } from '@material-ui/core';
+import { Link } from 'react-router-dom'
+    
+function ItemCount({ item, aumentarContador, restarContador, reestablecerContador, agregarAlCarrito, counter, open }) {
 
-const Contador = ({stock,initial}) => {
-
-    const [contador,setContador] = useState(initial)
-
-    const aumentarContador = () => {
-        if(contador < stock){
-            setContador(contador + 1)
-        }
-    }
-
-    const restarContador = () => {
-        if(contador > 0){
-            setContador(contador - 1)
-        }
-    }
-
-    const reestablecerContador = ()=>{
-        setContador(1)
-    }
-
-    const onAdd = () => {
-        console.log("Se van a solicitar "+contador+" unidades")
-    }
-
-
+    
     return (
         <div id="contador" align="center">
-            <p>Unidades: {contador}</p>
+            <p>Unidades: {counter}</p>
             <button type="button" class="btn btn-primary" onClick={ aumentarContador}>Aumentar</button>
             <button type="button" class="btn btn-danger" onClick={ restarContador}>Restar</button>
             <button type="button" class="btn btn-warning" onClick={ reestablecerContador}>Reestablecer</button>
             <br></br><br></br>
-            <button type="button" class="btn btn-outline-primary" onClick={onAdd}>Agregar al carrito</button>
+            { !open ? (<div className="itemCount__agregar">
+                <Button variant="contained" color="primary" onClick={ () => agregarAlCarrito(item)}>
+                  <h3>Agregar al carrito</h3>
+                </Button>
+            </div>) : 
+            (<Link to="/cart"><Button variant="contained" color="primary" >
+            <h3>Terminar la compra</h3>
+          </Button></Link>) }
+            
         </div>
     )
 }
-
-export default Contador
+export default ItemCount
 

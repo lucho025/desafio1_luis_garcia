@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './ItemDetail.css';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
@@ -14,8 +14,35 @@ const useStyles = makeStyles({
   },
 });
 
-function ItemDetail( { name, image, description, stock, initial, price }) {
+function ItemDetail( { item, name, image, description, stock, initial, precio }) {
     const classes = useStyles();
+    const [ counter, setCounter ] = useState(initial)
+    const [ cart, setCart ] = useState([])
+    const [ open, setOpen ] = useState(false)
+
+    function aumentarContador(){
+        if (counter < stock ){
+            setCounter(counter+1)
+        }
+    }
+
+    function restarContador() {
+        if (counter > initial ){
+            setCounter(counter-1)
+        }
+    }
+
+    const reestablecerContador = ()=>{
+      setCounter(1)
+  }
+
+    function agregarAlCarrito(product) {
+        console.log("Estas agregando " + counter + " al carrito")
+        setCart(...cart, { id: product.id, name: product.name, image: product.image, amount: counter })
+        setOpen(true)
+    }
+
+
 
 
     return (
@@ -34,13 +61,14 @@ function ItemDetail( { name, image, description, stock, initial, price }) {
                     {name}
                   </Typography>
                   <Typography variant="body2" color="textSecondary" component="p">
-                    {description} llevalo al precio de ${price}
+                    {description} por tan solo ${precio}
                   </Typography>
                 </CardContent>
               </CardActionArea>
             </Card>
           <div className="itemDetail__counter">
-            <ItemCount initial={initial} stock={stock} />
+            <ItemCount initial={initial} stock={stock} aumentarContador={aumentarContador} restarContador={restarContador}
+            agregarAlCarrito={agregarAlCarrito} reestablecerContador={reestablecerContador} item={item} counter={counter} open={open}/>
           </div>
         </div>
     )

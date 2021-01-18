@@ -21,7 +21,6 @@ const useStyles = makeStyles({
 
 function Item({ id, name, image }) {
     const classes = useStyles();
-
     return (
         <div className="item">
              <Card className={classes.root}>

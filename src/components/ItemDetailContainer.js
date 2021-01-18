@@ -42,35 +42,34 @@ const products = [{
     const { id } = useParams()
 
     useEffect(() => {
-        const articulo = new Promise((resolver, rechazar)=>{
+        const producto = new Promise((resolver, rechazar)=>{
         setTimeout(function(){
             const i = products.find(product => product.id == id)
-            console.log(i)
             resolver(i); 
         }, 2000);
         }
         )
-        articulo.then(result => setItem(result)) 
-        articulo.catch(err => console.log("Algo salio mal")) 
+        producto.then(result => setItem(result)) 
+        producto.catch(err => console.log("Algo salio mal")) 
 
     },  [id]);
 
     return (
-        <div className="itemDetailContainer">
+        <div className="itemDetailContainer">           
             { item ?
             <ItemDetail
+             item={item}
              id={item.id}
-             name={item.nombre}     
-             price={item.precio}
+             name={item.name}     
+             precio={item.precio}
              image={item.imagen}
              description={item.description}
              stock={item.stock}
              initial={item.initial}
              />
              :
-             <h2>Loading</h2>}
+             <h2>Cargando</h2>}
         </div>
     )
 }
-
 export default ItemDetailContainer
