@@ -18,7 +18,7 @@ function ItemCount({ item, aumentarContador, restarContador, reestablecerContado
                 </Button>
             </div>) : 
             (<Link to="/cart"><Button variant="contained" color="primary" >
-            <h3>Terminar la compra</h3>
+            <h3>Finalizar la compra</h3>
           </Button></Link>) }
             
         </div>
