@@ -9,6 +9,8 @@ import ItemDetailContainer from './ItemDetailContainer';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Footer from './Footer';
 import CartWidget from './CartWidget';
+import CartProvider from './CartContext';
+import Cart from './Cart'
 
 
 
@@ -60,6 +62,8 @@ function App() {
 
   return (
     <div className="app">
+     <CartProvider>
+
       <BrowserRouter>
         <Header />
         <Switch>
@@ -72,10 +76,16 @@ function App() {
           <Route exact path="/item/:id">
             <ItemDetailContainer />
           </Route>
+          <Route exact path="/cart">
+            <Cart />
+          </Route>
+
       </Switch>
       <CartWidget/>
       <Footer creador="Luis Garcia" fecha="2020"/>
       </BrowserRouter>
+      </CartProvider>
+
     </div>
   );
 }

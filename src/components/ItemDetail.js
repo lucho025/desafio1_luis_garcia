@@ -14,12 +14,10 @@ const useStyles = makeStyles({
   },
 });
 
-function ItemDetail( { item, name, image, description, stock, initial, precio }) {
+function ItemDetail( { item, name, image, description, stock, initial, price }) {
     const classes = useStyles();
     const [ counter, setCounter ] = useState(initial)
-    const [ cart, setCart ] = useState([])
-    const [ open, setOpen ] = useState(false)
-
+   
     function aumentarContador(){
         if (counter < stock ){
             setCounter(counter+1)
@@ -36,11 +34,7 @@ function ItemDetail( { item, name, image, description, stock, initial, precio })
       setCounter(1)
   }
 
-    function agregarAlCarrito(product) {
-        console.log("Estas agregando " + counter + " al carrito")
-        setCart(...cart, { id: product.id, name: product.name, image: product.image, amount: counter })
-        setOpen(true)
-    }
+  
 
 
 
@@ -61,14 +55,14 @@ function ItemDetail( { item, name, image, description, stock, initial, precio })
                     {name}
                   </Typography>
                   <Typography variant="body2" color="textSecondary" component="p">
-                    {description} por tan solo ${precio}
+                    {description} por tan solo ${price}
                   </Typography>
                 </CardContent>
               </CardActionArea>
             </Card>
           <div className="itemDetail__counter">
             <ItemCount initial={initial} stock={stock} aumentarContador={aumentarContador} restarContador={restarContador}
-            agregarAlCarrito={agregarAlCarrito} reestablecerContador={reestablecerContador} item={item} counter={counter} open={open}/>
+            reestablecerContador={reestablecerContador} item={item} counter={counter}/>
           </div>
         </div>
     )
