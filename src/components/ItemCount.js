@@ -13,6 +13,8 @@ function ItemCount({ item, id, aumentarContador, restarContador, reestablecerCon
       addToCart(item, counter, id);
       setOpen(true)
   }
+
+  
     
     return (
         <div id="contador" align="center">

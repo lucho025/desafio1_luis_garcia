@@ -14,7 +14,7 @@ const useStyles = makeStyles({
   },
 });
 
-function ItemDetail( { item, name, image, description, stock, initial, price }) {
+function ItemDetail( { id, item, name, image, description, stock, initial, price }) {
     const classes = useStyles();
     const [ counter, setCounter ] = useState(initial)
    
@@ -62,7 +62,7 @@ function ItemDetail( { item, name, image, description, stock, initial, price }) 
             </Card>
           <div className="itemDetail__counter">
             <ItemCount initial={initial} stock={stock} aumentarContador={aumentarContador} restarContador={restarContador}
-            reestablecerContador={reestablecerContador} item={item} counter={counter}/>
+            reestablecerContador={reestablecerContador} item={item} counter={counter} id={id}/>
           </div>
         </div>
     )

@@ -19,9 +19,11 @@ function CartProvider( { children }) {
     function isInCart(id){
         const item = cart.find(p => p.id === id)
         if (item === undefined){
+            console.log("prueba");
             return false
         }
         else {
+            
             return true
         }
     }
