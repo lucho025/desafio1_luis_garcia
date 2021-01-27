@@ -11,7 +11,7 @@ import Footer from './Footer';
 import CartWidget from './CartWidget';
 import CartProvider from './CartContext';
 import Cart from './Cart'
-
+import {firestore} from './firebaseConfig'
 
 
 const products = [{
@@ -44,10 +44,39 @@ const products = [{
 }
 ]
 
-function App() {
+const App = () => {
+
+  
+     
+  
+ 
+
   const [ items, setItems ] = useState([])
 
   useEffect(() => {
+    const db = firestore
+    const collection = db.collection("items")
+    const query = collection.get()
+
+    query
+      .then((resultado)=>{
+        const items_array = resultado.docs
+        items_array.forEach(item=>{
+          
+          const producto_final = {
+            id : item.id,
+            ...item.data()
+          }
+          console.log(producto_final)
+
+        })
+      })
+      .catch(()=>{
+        console.log("Fallo")
+      })
+
+      
+    
     const articulos = new Promise((resolver, rechazar)=>{
       setTimeout(function(){
         resolver(products); 
