@@ -34,7 +34,7 @@ function CartProvider( { children }) {
             const oldProduct = cart.find(p => p.id === id)
             const newQuantity = oldProduct.amount + counter           
             const newProduct = { id: oldProduct.id, name: oldProduct.name, image: oldProduct.image, price: oldProduct.price, amount: newQuantity}
-            const cartWithoutOld = cart.filter(product => product.id =! id)
+            const cartWithoutOld = cart.filter(product => product.id != id)
             const cartWithNew = [...cartWithoutOld, newProduct]
             setCart(cartWithNew)            
         } else {

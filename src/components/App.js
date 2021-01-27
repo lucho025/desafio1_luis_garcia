@@ -66,6 +66,7 @@ function App() {
 
       <BrowserRouter>
         <Header />
+        <CartWidget/>
         <Switch>
           <Route exact path="/">
             <ItemListContainer greeting="¡Bienvenido/a!" products={items} />
@@ -81,7 +82,6 @@ function App() {
           </Route>
 
       </Switch>
-      <CartWidget/>
       <Footer creador="Luis Garcia" fecha="2020"/>
       </BrowserRouter>
       </CartProvider>
