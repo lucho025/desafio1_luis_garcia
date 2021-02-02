@@ -6,7 +6,9 @@ import { Link } from 'react-router-dom'
 
 function CartWidget() {
     const { quantity } = useContext(CartContext)
-    const { totaleQ } = useContext(CartContext)
+    const { totaleQ, totalizar } = useContext(CartContext)
+
+
 
 
 
@@ -19,7 +21,7 @@ function CartWidget() {
  */}                <br></br>
                 <Link to="/cart"><i class='fas fa-cart-arrow-down' style={{fontSize: 40}}></i></Link>   
           
-                <h4>Usted posee {totaleQ} articulos agregados al carrito</h4>
+                <h4>Usted posee {totalizar()} articulos agregados al carrito</h4>
 
             </p>}
         </>

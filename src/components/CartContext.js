@@ -3,28 +3,28 @@ export const CartContext = React.createContext();
 
 function CartProvider( { children }) {
     const [ cart, setCart ] = useState([])
-    const [ quantity, setQuantity ] = useState(0)
+  // const [ quantity, setQuantity ] = useState(0)
     const [ total, setTotal ] = useState()
     const [ totaleQ, setTotaleQ ] = useState()
 
 
-    useEffect(() => {
-        var t = 0
-        const totals = cart.map( p => p.price * p.amount)
-        totals.map( p => t = t + p)
-        setTotal(t)
-
-        var y = 0
-        const totaleQ = cart.map( p => 1 * p.amount)
-        totaleQ.map( z => y = y + z)
-        setTotaleQ(y)
-
+    function totalizar() {
+        let t = 0
+        cart.forEach(element =>
+            {
+                t = t + element.amount
+            });
+            return t
         
-        const cartQuantity = cart.length
-        setQuantity(cartQuantity)
-        console.log(cart)
-        console.log(quantity)
-    }, [cart])
+    }
+
+    function totalizarPrecio(){
+        let t = 0
+        cart.forEach(element => {
+            t = t + (element.amount * element.price)
+        });
+        return t
+    }
 
 
     function isInCart(id){
@@ -74,7 +74,7 @@ function CartProvider( { children }) {
 
     return (
      
-            <CartContext.Provider value ={{ cart, quantity, total, totaleQ, addToCart, eliminateFromCart, clearCart, sizeQuantity, price }}>
+            <CartContext.Provider value ={{ cart, quantity: cart.length, total, totaleQ, addToCart, eliminateFromCart, clearCart, sizeQuantity, price, totalizar, totalizarPrecio }}>
                 { children }
             </CartContext.Provider>
     )
