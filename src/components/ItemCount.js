@@ -9,6 +9,8 @@ function ItemCount({ item, id, aumentarContador, restarContador, reestablecerCon
 
   const { addToCart } = useContext(CartContext)
   
+
+  
   function agregarAlCarrito(item, counter, id){
       addToCart(item, counter, id);
       setOpen(true)

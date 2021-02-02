@@ -5,14 +5,25 @@ function CartProvider( { children }) {
     const [ cart, setCart ] = useState([])
     const [ quantity, setQuantity ] = useState(0)
     const [ total, setTotal ] = useState()
+    const [ totaleQ, setTotaleQ ] = useState()
+
 
     useEffect(() => {
         var t = 0
         const totals = cart.map( p => p.price * p.amount)
         totals.map( p => t = t + p)
         setTotal(t)
+
+        var y = 0
+        const totaleQ = cart.map( p => 1 * p.amount)
+        totaleQ.map( z => y = y + z)
+        setTotaleQ(y)
+
+        
         const cartQuantity = cart.length
         setQuantity(cartQuantity)
+        console.log(cart)
+        console.log(quantity)
     }, [cart])
 
 
@@ -43,6 +54,15 @@ function CartProvider( { children }) {
         }
     }
 
+    const sizeQuantity = () => {
+        return cart.reduce((prev, next) => prev + next.quantity, 0)
+    }
+
+    const price = () => {
+        return cart.reduce((prev, next) =>
+            (prev + (next.quantity * next.item.price)), 0)
+    }
+
     function eliminateFromCart(id){
         const newCart = cart.filter(product => product.id !== id)
         setCart(newCart)
@@ -50,12 +70,11 @@ function CartProvider( { children }) {
 
     function clearCart(){
         setCart([])
-        setQuantity(0)
     }
 
     return (
      
-            <CartContext.Provider value ={{ cart, quantity, total, addToCart, eliminateFromCart, clearCart }}>
+            <CartContext.Provider value ={{ cart, quantity, total, totaleQ, addToCart, eliminateFromCart, clearCart, sizeQuantity, price }}>
                 { children }
             </CartContext.Provider>
     )

@@ -67,6 +67,7 @@ const App = () => {
             id : item.id,
             ...item.data()
           }
+          setItems([...items,producto_final])
           console.log(producto_final)
 
         })
@@ -83,7 +84,7 @@ const App = () => {
       }, 2000);
     }
     )
-    articulos.then( result => setItems(result)) 
+    articulos.then( result => setItems(result))  
     articulos.catch( err => console.log("Ha habido un error")) 
 
   }, []);
